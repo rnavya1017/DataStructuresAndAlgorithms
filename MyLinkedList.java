@@ -41,4 +41,19 @@ public class MyLinkedList<T> {
 
         System.out.println();
     }
+    /**
+ * Add node at the beginning of Linked List
+ */
+public void addFirst(T data) {
+
+    Node<T> newNode = new Node<>(data);
+
+    if (head == null) {
+        head = newNode;
+        tail = newNode;
+    } else {
+        newNode.next = head;
+        head = newNode;
+    }
+}
 }
