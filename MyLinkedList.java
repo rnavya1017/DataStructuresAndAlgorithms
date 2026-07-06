@@ -1,6 +1,7 @@
 
+
 /**
- * Generic Linked List
+ * Generic Linked List Class
  */
 public class MyLinkedList<T> {
 
@@ -8,23 +9,27 @@ public class MyLinkedList<T> {
     Node<T> tail;
 
     /**
-     * Add node at end of Linked List
+     * Append a node at the end of the linked list
      */
-    public void add(T data) {
+    public void append(T data) {
 
         Node<T> newNode = new Node<>(data);
 
+        // If linked list is empty
         if (head == null) {
             head = newNode;
             tail = newNode;
         } else {
+            // Attach new node after tail
             tail.next = newNode;
+
+            // Move tail to new node
             tail = newNode;
         }
     }
 
     /**
-     * Display Linked List
+     * Display the linked list
      */
     public void display() {
 
@@ -33,27 +38,13 @@ public class MyLinkedList<T> {
         while (temp != null) {
             System.out.print(temp.data);
 
-            if (temp.next != null)
+            if (temp.next != null) {
                 System.out.print(" -> ");
+            }
 
             temp = temp.next;
         }
 
         System.out.println();
     }
-    /**
- * Add node at the beginning of Linked List
- */
-public void addFirst(T data) {
-
-    Node<T> newNode = new Node<>(data);
-
-    if (head == null) {
-        head = newNode;
-        tail = newNode;
-    } else {
-        newNode.next = head;
-        head = newNode;
-    }
-}
 }
