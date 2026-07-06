@@ -9,8 +9,17 @@ public class Queue<T> {
         queue.append(data);
     }
 
-    // Display Queue
+     // Dequeue operation
+    public T dequeue() {
+        return queue.pop();
+    }
+
+    public boolean isEmpty() {
+        return queue.isEmpty();
+    }
+
     public void display() {
         queue.display();
+    
     }
 }
