@@ -28,6 +28,28 @@ public class MyLinkedList<T> {
         }
     }
 
+        /**
+     * Insert a node after a given node
+     */
+    public void insert(Node<T> previousNode, T data) {
+
+        if (previousNode == null) {
+            System.out.println("Previous node cannot be null.");
+            return;
+        }
+
+        Node<T> newNode = new Node<>(data);
+
+        newNode.next = previousNode.next;
+        previousNode.next = newNode;
+
+        // Update tail if inserted at the end
+        if (previousNode == tail) {
+            tail = newNode;
+        }
+    }
+
+
     /**
      * Display the linked list
      */
