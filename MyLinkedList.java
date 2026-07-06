@@ -117,7 +117,26 @@ public class MyLinkedList<T> {
 
         return null;
     }
+ /**
+     * Insert a new node after the given node
+     */
+    public void insertAfter(Node<T> previousNode, T data) {
 
+        if (previousNode == null) {
+            System.out.println("Previous node cannot be null.");
+            return;
+        }
+
+        Node<T> newNode = new Node<>(data);
+
+        newNode.next = previousNode.next;
+        previousNode.next = newNode;
+
+        // Update tail if inserted after last node
+        if (tail == previousNode) {
+            tail = newNode;
+        }
+    }
 
     /**
      * Display the linked list
