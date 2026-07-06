@@ -138,6 +138,59 @@ public class MyLinkedList<T> {
         }
     }
 
+        /**
+     * Delete a node by value
+     */
+    public void delete(T key) {
+
+        if (head == null) {
+            return;
+        }
+
+        // If first node contains the key
+        if (head.data.equals(key)) {
+            head = head.next;
+
+            if (head == null) {
+                tail = null;
+            }
+            return;
+        }
+
+        Node<T> current = head;
+        Node<T> previous = null;
+
+        while (current != null && !current.data.equals(key)) {
+            previous = current;
+            current = current.next;
+        }
+
+        if (current == null) {
+            return;
+        }
+
+        previous.next = current.next;
+
+        if (current == tail) {
+            tail = previous;
+        }
+    }
+/**
+     * Returns the size of the Linked List
+     */
+    public int size() {
+
+        int count = 0;
+        Node<T> temp = head;
+
+        while (temp != null) {
+            count++;
+            temp = temp.next;
+        }
+
+        return count;
+    }
+
     /**
      * Display the linked list
      */
