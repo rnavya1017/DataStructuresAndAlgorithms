@@ -49,6 +49,24 @@ public class MyLinkedList<T> {
         }
     }
 
+     /**
+     * Delete the first node (Head)
+     */
+    public void pop() {
+
+        if (head == null) {
+            System.out.println("Linked List is Empty.");
+            return;
+        }
+
+        // Move head to next node
+        head = head.next;
+
+        // If list becomes empty
+        if (head == null) {
+            tail = null;
+        }
+    }
 
     /**
      * Display the linked list
