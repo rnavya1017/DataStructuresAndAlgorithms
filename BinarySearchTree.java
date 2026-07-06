@@ -1,10 +1,9 @@
 
-
 public class BinarySearchTree<K extends Comparable<K>> {
 
     private INode<K> root;
 
-    // Add node
+    // Insert Node
     public void add(K key) {
         root = addRecursive(root, key);
     }
@@ -24,17 +23,26 @@ public class BinarySearchTree<K extends Comparable<K>> {
         return node;
     }
 
-    // Count total nodes
-    public int size() {
-        return sizeRecursive(root);
+    // Search Method
+    public boolean search(K key) {
+        return searchRecursive(root, key);
     }
 
-    private int sizeRecursive(INode<K> node) {
+    private boolean searchRecursive(INode<K> node, K key) {
 
-        if (node == null)
-            return 0;
+        if (node == null) {
+            return false;
+        }
 
-        return 1 + sizeRecursive(node.getLeft()) + sizeRecursive(node.getRight());
+        if (node.getKey().compareTo(key) == 0) {
+            return true;
+        }
+
+        if (key.compareTo(node.getKey()) < 0) {
+            return searchRecursive(node.getLeft(), key);
+        } else {
+            return searchRecursive(node.getRight(), key);
+        }
     }
 
     // Inorder Traversal

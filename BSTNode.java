@@ -1,5 +1,4 @@
 
-
 public class BSTNode<K extends Comparable<K>> implements INode<K> {
 
     private K key;
