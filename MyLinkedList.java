@@ -48,7 +48,6 @@ public class MyLinkedList<T> {
             tail = newNode;
         }
     }
-
      /**
      * Delete the first node (Head)
      */
@@ -67,6 +66,39 @@ public class MyLinkedList<T> {
             tail = null;
         }
     }
+
+      /**
+     * Delete the last node (Tail)
+     */
+    public void popLast() {
+
+        // Check if the list is empty
+        if (head == null) {
+            System.out.println("Linked List is Empty.");
+            return;
+        }
+
+        // If there is only one node
+        if (head == tail) {
+            head = null;
+            tail = null;
+            return;
+        }
+
+        // Traverse to the second last node
+        Node<T> temp = head;
+
+        while (temp.next != tail) {
+            temp = temp.next;
+        }
+
+        // Remove last node
+        temp.next = null;
+
+        // Update tail
+        tail = temp;
+    }
+
 
     /**
      * Display the linked list
