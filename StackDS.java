@@ -12,6 +12,34 @@ public class StackDS<T> {
         head = newNode;
     }
 
+    // Return top element
+public T peek() {
+
+    if (head == null) {
+        return null;
+    }
+
+    return head.data;
+}
+
+// Remove top element
+public T pop() {
+
+    if (head == null) {
+        return null;
+    }
+
+    T data = head.data;
+    head = head.next;
+
+    return data;
+}
+
+// Check whether stack is empty
+public boolean isEmpty() {
+    return head == null;
+}
+
     // Display Stack
     public void display() {
 
